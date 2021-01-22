@@ -13,18 +13,11 @@
     />
     <link rel="shortcut icon" href="http://localhost:3000/public/favicon.ico" />
 
-    <link
-      href="http://localhost:3000/asdfasdf/1/edit.atom"
-      rel="alternate"
-      type="application/atom+xml"
-      title="Atom feed for revisions of this test case"
-    />
-
     <link rel="stylesheet" href="./jsperf/main.src.css" />
     <link rel="stylesheet" href="./jsperf/default.min.css" />
 
     <!--[if lt IE 9]>
-      <script src="/html5.js"></script>
+      <script src="./jsperf/html5.js"></script>
     <![endif]-->
   </head>
 
@@ -173,113 +166,6 @@ ccc</textarea
           </fieldset>
           <fieldset id="tests">
             <h3>Code snippets to compare</h3>
-            <fieldset class="test">
-              <h4>Code snippet 1</h4>
-              <div>
-                <label for="test[0][title]">Title </label>
-                <input
-                  type="text"
-                  name="test[0][title]"
-                  id="test[0][title]"
-                  value="let"
-                />
-              </div>
-              <div>
-                <label for="test[0][defer]">Async </label>
-                <label class="inline">
-                  <input
-                    type="checkbox"
-                    value="y"
-                    name="test[0][defer]"
-                    id="test[0][defer]"
-                    checked=""
-                  />
-                  (check if this is an
-                  <a href="http://localhost:3000/faq#async">asynchronous test</a
-                  >)
-                </label>
-              </div>
-              <div>
-                <label for="test[0][code]">Code </label>
-                <textarea
-                  name="test[0][code]"
-                  id="test[0][code]"
-                  class="code-js"
-                  maxlength=""
-                >
-let thing = true;</textarea
-                >
-                <input type="hidden" name="test[0][testID]" value="3" />
-              </div>
-            </fieldset>
-            <fieldset class="test">
-              <h4>Code snippet 2</h4>
-              <div>
-                <label for="test[1][title]">Title </label>
-                <input
-                  type="text"
-                  name="test[1][title]"
-                  id="test[1][title]"
-                  value="const"
-                />
-              </div>
-              <div>
-                <label for="test[1][defer]">Async </label>
-                <label class="inline">
-                  <input
-                    type="checkbox"
-                    value="y"
-                    name="test[1][defer]"
-                    id="test[1][defer]"
-                  />
-                  (check if this is an
-                  <a href="http://localhost:3000/faq#async">asynchronous test</a
-                  >)
-                </label>
-              </div>
-              <div>
-                <label for="test[1][code]">Code </label>
-                <textarea
-                  name="test[1][code]"
-                  id="test[1][code]"
-                  class="code-js"
-                  maxlength=""
-                >
-const thing = true;</textarea
-                >
-                <input type="hidden" name="test[1][testID]" value="4" />
-              </div>
-            </fieldset>
-            <h4>Code snippet 3</h4>
-            <div class="test">
-              <label for="test[2][title]"
-                >Title <em title="This field is required">*</em> </label
-              ><input type="text" name="test[2][title]" id="test[2][title]" />
-            </div>
-            <div>
-              <label for="test[2][defer]">Async </label
-              ><label class="inline"
-                ><input
-                  type="checkbox"
-                  value="y"
-                  name="test[2][defer]"
-                  id="test[2][defer]"
-                />
-                (check if this is an
-                <a href="http://localhost:3000/faq#async">asynchronous test</a
-                >)</label
-              >
-            </div>
-            <div>
-              <label for="test[2][code]"
-                >Code <em title="This field is required">*</em> </label
-              ><textarea
-                name="test[2][code]"
-                class="code-js"
-                id="test[2][code]"
-                maxlength="36777235"
-              ></textarea>
-            </div>
           </fieldset>
 
           <p>
@@ -304,6 +190,7 @@ const thing = true;</textarea
     <script src="./nanoid.js"></script>
     <script src="./jsperf/jquery.js"></script>
     <script src="./jsperf/main.src.js"></script>
+    <script src="./util.js"></script>
     <script src="./index.js"></script>
   </body>
 </html>

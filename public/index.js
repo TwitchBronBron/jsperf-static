@@ -2,6 +2,7 @@
 function getFormData() {
     var form = $('form').first();
     var suite = {
+        id: $('#id').val(),
         author: $('#author').val(),
         email: $('#authorEmail').val(),
         url: $('#authorURL').val(),
@@ -12,6 +13,9 @@ function getFormData() {
         teardown: $('#teardown').val(),
         tests: []
     };
+    if (!suite.id) {
+        suite.id = nanoid();
+    }
 
     var testElements = $('.test');
     for (var i = 0; i < testElements.length; i++) {

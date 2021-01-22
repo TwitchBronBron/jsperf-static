@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://localhost:3000/asdfasdf/1/edit -->
+<html lang="en" class="js">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>asdf · jsPerf</title>
+
+    <link
+      rel="apple-touch-icon"
+      href="http://localhost:3000/public/apple-touch-icon.png"
+    />
+    <link rel="shortcut icon" href="http://localhost:3000/public/favicon.ico" />
+
+    <link
+      href="http://localhost:3000/asdfasdf/1/edit.atom"
+      rel="alternate"
+      type="application/atom+xml"
+      title="Atom feed for revisions of this test case"
+    />
+
+    <link rel="stylesheet" href="./jsperf/main.src.css" />
+    <link rel="stylesheet" href="./jsperf/default.min.css" />
+
+    <!--[if lt IE 9]>
+      <script src="/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <article>
+      <h1>Editing <a href="http://localhost:3000/asdfasdf">asdf</a></h1>
+      <form method="post" onsubmit="return false;">
+        <input type="hidden" id="id" name="id" value="uf_Qphzf0P" />
+        <fieldset>
+          <h3>Your details (optional)</h3>
+          <div>
+            <label for="author">Name</label>
+            <input
+              type="text"
+              name="author"
+              id="author"
+              value="TwitchBronBron"
+            />
+          </div>
+          <div>
+            <label for="authorEmail">Email </label>
+            <label class="inline">
+              <input
+                type="email"
+                name="authorEmail"
+                id="authorEmail"
+                value=""
+              />
+              (won’t be displayed; might be used for Gravatar)
+            </label>
+          </div>
+          <div>
+            <label for="authorURL">URL </label>
+            <input
+              type="url"
+              name="authorURL"
+              id="authorURL"
+              value="https://bronley.com"
+            />
+          </div>
+        </fieldset>
+        <fieldset>
+          <h3>Test case details</h3>
+          <div>
+            <label for="title"
+              >Title <em title="This field is required">*</em>
+            </label>
+            <input
+              type="text"
+              name="title"
+              id="title"
+              value="asdf"
+              required=""
+            />
+
+            <input type="hidden" name="slug" id="slug" value="asdfasdf" />
+          </div>
+          <div>
+            <label for="info"
+              >Description
+              <span>(in case you feel further explanation is needed)</span>
+              <span>(Markdown syntax is allowed)</span>
+            </label>
+            <textarea name="info" id="info" maxlength="16777215"></textarea>
+          </div>
+          <fieldset>
+            <h3>Preparation code</h3>
+            <div>
+              <label for="initHTML"
+                >Preparation code HTML
+                <span
+                  >(this will be inserted in the <code>&lt;body&gt;</code> of a
+                  valid HTML5 document in standards mode)
+                </span>
+                <span
+                  >(useful when testing DOM operations or including libraries)
+                </span>
+              </label>
+              <textarea
+                name="initHTML"
+                id="initHTML"
+                maxlength="16777215"
+              ></textarea>
+              <div id="add-buttons">
+                <button id="add-jquery" title="jQuery v1.x">jQuery</button
+                ><button id="add-prototype" title="Prototype v1.x">
+                  Prototype</button
+                ><button id="add-mootools" title="MooTools v.1.3.x">
+                  MooTools</button
+                ><button id="add-yui" title="YUI v2.9.0">YUI</button
+                ><button id="add-dojo" title="Dojo v1.x">Dojo</button
+                ><button id="add-ext" title="Ext Core v3.x">Ext Core</button
+                ><button id="add-mylib" title="My Library v0.99">
+                  My Library
+                </button>
+              </div>
+              <p id="add-libraries">
+                Include JavaScript libraries as follows:
+                <code
+                  >&lt;script
+                  src="https://cdn.example.com/library.js"&gt;&lt;/script&gt;</code
+                >
+              </p>
+              <p></p>
+            </div>
+            <div>
+              <label for="setup"
+                >Define <code>setup</code> for all tests
+                <span
+                  >(variables, functions, arrays or other objects that will be
+                  used in the tests)
+                </span>
+                <span
+                  >(runs before each clocked test loop, outside of the timed
+                  code region)
+                </span>
+                <span
+                  >(e.g. define local test variables, reset global variables,
+                  clear <code>canvas</code>, etc.)
+                </span>
+                <span
+                  >(<a href="http://localhost:3000/faq#setup-teardown"
+                    >see FAQ</a
+                  >)
+                </span>
+              </label>
+              <textarea name="setup" id="setup" maxlength="16777215"></textarea>
+            </div>
+            <div>
+              <label for="teardown"
+                >Define <code>teardown</code> for all tests
+                <span
+                  >(runs after each clocked test loop, outside of the timed code
+                  region)
+                </span>
+                <span
+                  >(<a href="http://localhost:3000/faq#setup-teardown"
+                    >see FAQ</a
+                  >)
+                </span>
+              </label>
+              <textarea name="teardown" id="teardown" maxlength="16777215">
+ccc</textarea
+              >
+            </div>
+          </fieldset>
+          <fieldset id="tests">
+            <h3>Code snippets to compare</h3>
+            <fieldset class="test">
+              <h4>Code snippet 1</h4>
+              <div>
+                <label for="test[0][title]">Title </label>
+                <input
+                  type="text"
+                  name="test[0][title]"
+                  id="test[0][title]"
+                  value="let"
+                />
+              </div>
+              <div>
+                <label for="test[0][defer]">Async </label>
+                <label class="inline">
+                  <input
+                    type="checkbox"
+                    value="y"
+                    name="test[0][defer]"
+                    id="test[0][defer]"
+                    checked=""
+                  />
+                  (check if this is an
+                  <a href="http://localhost:3000/faq#async">asynchronous test</a
+                  >)
+                </label>
+              </div>
+              <div>
+                <label for="test[0][code]">Code </label>
+                <textarea
+                  name="test[0][code]"
+                  id="test[0][code]"
+                  class="code-js"
+                  maxlength=""
+                >
+let thing = true;</textarea
+                >
+                <input type="hidden" name="test[0][testID]" value="3" />
+              </div>
+            </fieldset>
+            <fieldset class="test">
+              <h4>Code snippet 2</h4>
+              <div>
+                <label for="test[1][title]">Title </label>
+                <input
+                  type="text"
+                  name="test[1][title]"
+                  id="test[1][title]"
+                  value="const"
+                />
+              </div>
+              <div>
+                <label for="test[1][defer]">Async </label>
+                <label class="inline">
+                  <input
+                    type="checkbox"
+                    value="y"
+                    name="test[1][defer]"
+                    id="test[1][defer]"
+                  />
+                  (check if this is an
+                  <a href="http://localhost:3000/faq#async">asynchronous test</a
+                  >)
+                </label>
+              </div>
+              <div>
+                <label for="test[1][code]">Code </label>
+                <textarea
+                  name="test[1][code]"
+                  id="test[1][code]"
+                  class="code-js"
+                  maxlength=""
+                >
+const thing = true;</textarea
+                >
+                <input type="hidden" name="test[1][testID]" value="4" />
+              </div>
+            </fieldset>
+            <h4>Code snippet 3</h4>
+            <div class="test">
+              <label for="test[2][title]"
+                >Title <em title="This field is required">*</em> </label
+              ><input type="text" name="test[2][title]" id="test[2][title]" />
+            </div>
+            <div>
+              <label for="test[2][defer]">Async </label
+              ><label class="inline"
+                ><input
+                  type="checkbox"
+                  value="y"
+                  name="test[2][defer]"
+                  id="test[2][defer]"
+                />
+                (check if this is an
+                <a href="http://localhost:3000/faq#async">asynchronous test</a
+                >)</label
+              >
+            </div>
+            <div>
+              <label for="test[2][code]"
+                >Code <em title="This field is required">*</em> </label
+              ><textarea
+                name="test[2][code]"
+                class="code-js"
+                id="test[2][code]"
+                maxlength="36777235"
+              ></textarea>
+            </div>
+          </fieldset>
+
+          <p>
+            <em
+              >NB: leave <code>Title</code> and <code>Code</code> blank to
+              remove code snippet.</em
+            >
+          </p>
+
+          <div class="buttons">
+            <button
+              id="add-test"
+              title="Add another code snippet to the test case"
+            >
+              Add code snippet</button
+            ><input
+              type="submit"
+              class="submit"
+              value="Save test case"
+              title="Save and view test case"
+            />
+          </div>
+          <button onclick="getFormData()">Get form data</button>
+        </fieldset>
+      </form>
+    </article>
+    <script src="./jsperf/jquery.js"></script>
+    <script src="./jsperf/main.src.js"></script>
+    <script src="./index.js"></script>
+  </body>
+</html>

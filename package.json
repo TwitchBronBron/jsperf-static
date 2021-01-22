@@ -1,0 +1,16 @@
+{
+  "name": "jsperf-static2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ga.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "static public"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-static": "^0.7.11"
+  },
+  "dependencies": {}
+}

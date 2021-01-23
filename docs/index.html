@@ -39,7 +39,8 @@
         Key points:
     <ul>
         <li>All tests are <b><i>ONLY</i></b> stored in the browser's local-storage</li>
-        <li>(Coming soon) You can generate a shareable URL with the test case embedded in the querystring (as long as your test code
+        <li>(Coming soon) You can generate a shareable URL with the test case embedded in the querystring (as long as
+            your test code
             is small enough).</li>
     </ul>
     </p>
@@ -71,10 +72,9 @@
             var suite = suites[i];
             $testContainer.append(
                 '<li>' +
-                '   <a href="test.html?id=' + suite.id + '">' +
-                '       ' + (suite.title || '<no title>') +
+                '   <a href="test.html?id=' + suite.id + '">' + (suite.title || '<no title>') +
                 '       (<i>' + suite.id + '</i>)</a>' +
-                'by ' + (suite.author || '<no author>') +
+                (suite.author ? ' by ' + suite.author: '') +
                 '   (last updated ' + timeSince(new Date(suite.editTime)) + ' ago)' +
                 '</li>'
             );

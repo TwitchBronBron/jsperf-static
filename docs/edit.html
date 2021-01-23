@@ -38,7 +38,6 @@
 
         <h1 id="editingHeader" style="display:none">Editing <a id="testLink"></a></h1>
         <form method="post" onsubmit="return false;">
-            <input type="hidden" id="id" name="id" />
             <fieldset>
                 <h3>Your details (optional)</h3>
                 <div>
@@ -128,19 +127,24 @@
     <script src="./jsperf/main.src.js"></script>
     <script src="./util.js"></script>
     <script type="text/javascript">
+        var suiteId = getParameterByName("id");
         $(function () {
-            var id = getParameterByName("id");
+            if (!suiteId) {
+                //this is a new edit, so generate a unique ID and redirect to it
+                window.location.href = 'edit.html?id=' + nanoid(10);
+            }
+
+            //load the suite
+            var suite = JSON.parse(localStorage.getItem(suiteId));
             var clone = getParameterByName("clone") === "true" ? true : false;
-            if (id) {
+            if (suite) {
                 //load suite from local storage
-                var suite = JSON.parse(localStorage.getItem(id));
                 if (clone) {
                     suite.id = nanoid(10);
-                    localStorage.setItem(id, JSON.stringify(suite));
+                    localStorage.setItem(suite.id, JSON.stringify(suite));
                     window.location.href = 'edit.html?id=' + suite.id;
                 } else {
                     //populate the form with the suite data
-                    $("#id").val(suite.id);
                     $("#editingHeader").css("display", "block");
                     $("#testLink").attr("href", "test.html?id=" + suite.id);
                     $("#author").val(suite.author);
@@ -171,7 +175,7 @@
         function saveAndViewTestCase() {
             var form = $("form").first();
             var suite = {
-                id: $("#id").val(),
+                id: suiteId,
                 author: $("#author").val(),
                 email: $("#authorEmail").val(),
                 authorURL: $("#authorURL").val(),

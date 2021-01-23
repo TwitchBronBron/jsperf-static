@@ -37,19 +37,20 @@
         </p>
 
         <section id="prep-code">
-            <h2>Preparation code</h2>
-
-            <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//www.cinsoft.net/mylib099-min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
-
-      <br>
-      <span class="sc2">&lt;<span class="kw2">script</span>&gt;</span><br>
-
-        Benchmark.<span class="me1">prototype</span>.<span class="me1">teardown</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>
-          <pre><code class="js"></code></pre>
-            <br> <span class="br0">}</span><span class="sy0">;</span>
-
-            <br><span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span>
-            </code></pre>
+            <h2>Preparation code </h2>
+            <pre><code class="init-html"></code></pre>
+            <pre><code>&lt;script&gt;</code></pre>
+            <div id="setup-code">
+                <pre style="margin-left: 20px;"><code>Benchmark.prototype.setup = function() {</code></pre>
+                <pre style="margin-left: 40px;"><code class="setup"></code></pre>
+                <pre style="margin-left: 20px;"><code>}</code></pre>
+            </div>
+            <div id="teardown-code">
+                <pre style="margin-left: 20px;"><code>Benchmark.prototype.teardown = function() {</code></pre>
+                <pre style="margin-left: 40px;"><code class="teardown"></code></pre>
+                <pre style="margin-left: 20px;"><code>}</code></pre>
+            </div>
+            <pre><code>&lt;/script&gt;</code></pre>
         </section>
 
         <section>
@@ -119,6 +120,9 @@
                 $("#initHTML").val(suite.initHTML);
                 $("#setup").val(suite.setup);
                 $("#teardown").val(suite.teardown);
+                $("#prep-code .init-html").text(suite.initHTML);
+                $("#prep-code .setup").text(suite.setup);
+                $("#prep-code .teardown").text(suite.teardown);
                 for (var i = 0; i < suite.tests.length; i++) {
                     var test = suite.tests[i];
                     var testNumber = i + 1;

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<!-- saved from url=(0037)http://localhost:3000/asdfasdf/1/edit -->
 <html lang="en" class="js">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>asdf · jsPerf</title>
+    <title>edit · jsPerf</title>
 
     <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
     <link rel="shortcut icon" href="./favicon.ico" />
@@ -21,7 +20,8 @@
 
 <body>
     <h1>
-        <strong><em title="JavaScript">js</em>Perf</strong> — JavaScript performance playground
+        <a href="edit.html" style="text-decoration: none; color: inherit;"><strong><em
+                    title="JavaScript">js</em>Perf</strong> — JavaScript performance playground</a>
     </h1>
     <article>
         <h2>What is jsPerf?</h2>
@@ -30,7 +30,7 @@
             different JavaScript snippets by running benchmarks. For more information, see<a href="./faq.html"
                title="Frequently asked questions">the FAQ</a>.</p>
 
-        <h1>Editing <a href="http://localhost:3000/asdfasdf">asdf</a></h1>
+        <h1 id="editingHeader" style="display:none">Editing <a id="testLink"></a></h1>
         <form method="post" onsubmit="return false;">
             <input type="hidden" id="id" name="id" value="uf_Qphzf0P" />
             <fieldset>
@@ -68,14 +68,9 @@
                 <div>
                     <label for="title">Title <em title="This field is required">*</em>
                     </label>
-                    <input
-                           type="text"
-                           name="title"
-                           id="title"
-                           value="asdf"
-                           required="" />
+                    <input type="text" name="title" id="title" value="" required="" />
 
-                    <input type="hidden" name="slug" id="slug" value="asdfasdf" />
+                    <input type="hidden" name="slug" id="slug" value="" />
                 </div>
                 <div>
                     <label for="info">Description
@@ -107,7 +102,7 @@
                             <span>(e.g. define local test variables, reset global variables,
                                 clear <code>canvas</code>, etc.)
                             </span>
-                            <span>(<a href="http://localhost:3000/faq#setup-teardown">see FAQ</a>)
+                            <span>(<a href="faq.html#setup-teardown">see FAQ</a>)
                             </span>
                         </label>
                         <textarea name="setup" id="setup" maxlength="16777215"></textarea>
@@ -117,21 +112,15 @@
                             <span>(runs after each clocked test loop, outside of the timed code
                                 region)
                             </span>
-                            <span>(<a href="http://localhost:3000/faq#setup-teardown">see FAQ</a>)
+                            <span>(<a href="faq.html#setup-teardown">see FAQ</a>)
                             </span>
                         </label>
-                        <textarea name="teardown" id="teardown" maxlength="16777215">
-ccc</textarea>
+                        <textarea name="teardown" id="teardown" maxlength="16777215"></textarea>
                     </div>
                 </fieldset>
                 <fieldset id="tests">
                     <h3>Code snippets to compare</h3>
                 </fieldset>
-
-                <p>
-                    <em>NB: leave <code>Title</code> and <code>Code</code> blank to
-                        remove code snippet.</em>
-                </p>
 
                 <div class="buttons">
                     <button class="submit" title="Save and view test case" onclick="saveAndViewTestCase()">Save test
@@ -147,28 +136,37 @@ ccc</textarea>
     <script type="text/javascript">
         $(function () {
             var id = getParameterByName("id");
+            var clone = getParameterByName("clone") === "true" ? true : false;
             if (id) {
                 //load suite from local storage
                 var suite = JSON.parse(localStorage.getItem(id));
-                //populate the form with the suite data
-                $("#id").val(suite.id);
-                $("#author").val(suite.author);
-                $("#author").val(suite.author);
-                $("#authorEmail").val(suite.email);
-                $("#authorURL").val(suite.url);
-                $("#title").val(suite.title);
-                $("#info").val(suite.info);
-                $("#initHTML").val(suite.initHTML);
-                $("#setup").val(suite.setup);
-                $("#teardown").val(suite.teardown);
-                for (var i = 1; i <= suite.tests.length; i++) {
-                    var prefix = "test[" + i + "]";
-                    var test = suite.tests[i - 1];
-                    //create a new snippet
-                    $("#add-test").click();
-                    document.getElementById(prefix + "[title]").value = test.title;
-                    document.getElementById(prefix + "[defer]").checked = test.defer;
-                    document.getElementById(prefix + "[code]").value = test.code;
+                if (clone) {
+                    suite.id = nanoid(10);
+                    localStorage.setItem(id, JSON.stringify(suite));
+                    window.location.href = 'edit.html?id=' + suite.id;
+                } else {
+                    //populate the form with the suite data
+                    $("#id").val(suite.id);
+                    $("#editingHeader").css("display", "block");
+                    $("#testLink").attr("href", "test.html?id=" + suite.id);
+                    $("#author").val(suite.author);
+                    $("#author").val(suite.author);
+                    $("#authorEmail").val(suite.email);
+                    $("#authorURL").val(suite.url);
+                    $("#title").val(suite.title);
+                    $("#info").val(suite.info);
+                    $("#initHTML").val(suite.initHTML);
+                    $("#setup").val(suite.setup);
+                    $("#teardown").val(suite.teardown);
+                    for (var i = 1; i <= suite.tests.length; i++) {
+                        var prefix = "test[" + i + "]";
+                        var test = suite.tests[i - 1];
+                        //create a new snippet
+                        $("#add-test").click();
+                        document.getElementById(prefix + "[title]").value = test.title;
+                        document.getElementById(prefix + "[defer]").checked = test.defer;
+                        document.getElementById(prefix + "[code]").value = test.code;
+                    }
                 }
             } else {
                 //populate two test snippets
@@ -191,7 +189,7 @@ ccc</textarea>
                 tests: [],
             };
             if (!suite.id) {
-                suite.id = nanoid();
+                suite.id = nanoid(10);
             }
 
             var i = 1;
@@ -199,7 +197,7 @@ ccc</textarea>
             while ((snippetData = getSnippetData(i++))) {
                 suite.tests.push(snippetData);
             }
-
+            console.log(suite);
             //save the suite to local storage
             localStorage.setItem(suite.id, JSON.stringify(suite));
             //navigate to the test page
@@ -207,14 +205,28 @@ ccc</textarea>
         }
 
         function getSnippetData(index) {
-            var prefix = "test[" + index + "]";
-            var titleElement = document.getElementById(prefix + "[title]");
-            if (titleElement) {
+            var container = document.getElementById('test[' + index + ']');
+            if (container) {
+                var $container = $(container);
                 return {
-                    title: titleElement.value,
-                    defer: document.getElementById(prefix + "[defer]").checked,
-                    code: document.getElementById(prefix + "[code]").value,
+                    title: $container.find('.title')[0].value,
+                    defer: $container.find('.defer')[0].checked,
+                    code: $container.find('.code')[0].value
                 };
+            }
+        }
+
+        function deleteCodeSnippet(index) {
+            document.getElementById('test[' + index + ']').remove();
+
+            //shift all tests higher than this down by 1
+            while (true) {
+                index++;
+                var element = document.getElementById('test[' + index + ']');
+                if (!element) {
+                    break;
+                }
+                $(element).attr('id', 'test[' + (index - 1) + ']');
             }
         }
     </script>

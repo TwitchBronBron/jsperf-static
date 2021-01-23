@@ -40,7 +40,7 @@
       <span class="sc2">&lt;<span class="kw2">script</span>&gt;</span><br>
 
         Benchmark.<span class="me1">prototype</span>.<span class="me1">teardown</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>
-          <pre><code class="js">  ccc</code></pre>
+          <pre><code class="js"></code></pre>
             <br> <span class="br0">}</span><span class="sy0">;</span>
 
             <br><span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span>
@@ -107,10 +107,7 @@
             </table>
 
             <p>
-                You can
-                <a id="editLink" href="index.html" rel="nofollow">edit these tests or add even more tests to
-                    this page</a>
-                by appending <code>/edit</code> to the URL.
+                You can <a id="editLink" rel="nofollow">edit these tests</a> or <a id="cloneLink">clone these tests</a>
             </p>
         </section>
 
@@ -120,9 +117,6 @@
     <script src="./jsperf/jquery.js"></script>
     <script src="./util.js"></script>
     <script src="./jsperf/test.js"></script>
-    <script>
-        Benchmark.prototype.teardown = "ccc";
-    </script>
 
     <script type="text/javascript">
         $(function () {
@@ -130,8 +124,8 @@
             if (id) {
                 //load suite from local storage
                 var suite = JSON.parse(localStorage.getItem(id));
-debugger;
-                $("#editLink").attr('href', 'index.html?id=' + suite.id);
+                $("#editLink").attr('href', 'edit.html?id=' + suite.id);
+                $("#cloneLink").attr('href', 'edit.html?clone=true&id=' + suite.id);
                 $("#pageTitle").html(suite.title + ' · jsPerf');
                 //populate the form with the suite data
                 $("#id").val(suite.id);

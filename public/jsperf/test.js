@@ -21430,7 +21430,7 @@
 
       if (pageLoaded) {
         // configure browserscope
-        ui.browserscope.postable = has.runner && !('nopost' in params);
+        // ui.browserscope.postable = has.runner && !('nopost' in params);
 
         // configure chart renderer
         if (chart || filterBy) {
@@ -21848,40 +21848,6 @@
 
   // parse location hash string
   ui.parseHash();
-
-  // provide a simple UI for toggling between chart types and filtering results
-  // (assumes ui.js is just before </body>)
-  (function () {
-    var sibling = $('bs-results');
-    var p = createElement('p');
-
-    p.innerHTML =
-      '<span id=charts><strong>Chart type:</strong> <a href=#>bar</a>, ' +
-      '<a href=#>column</a>, <a href=#>line</a>, <a href=#>pie</a>, ' +
-      '<a href=#>table</a></span><br>' +
-      '<span id=filters><strong>Filter:</strong> <a href=#>popular</a>, ' +
-      '<a href=#>all</a>, <a href=#>desktop</a>, <a href=#>family</a>, ' +
-      '<a href=#>major</a>, <a href=#>minor</a>, <a href=#>mobile</a>, ' +
-      '<a href=#>prerelease</a></span>';
-
-    sibling.parentNode.insertBefore(p, sibling);
-
-    // use DOM0 event handler to simplify canceling the default action
-    $('charts').onclick =
-    $('filters').onclick = function (event) {
-      event || (event = window.event);
-      var target = event.target || event.srcElement;
-      if (target.href || (target = target.parentNode).href) {
-        ui.browserscope.render(
-          target.parentNode.id === 'charts'
-            ? { 'chart': target.innerHTML }
-            : { 'filterBy': target.innerHTML }
-        );
-      }
-      // cancel the default action
-      return false;
-    };
-  }());
 
   /* ------------------------------------------------------------------------ */
 

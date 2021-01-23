@@ -36,21 +36,9 @@
             <time id="timeAgo"></time> ago
         </p>
 
-        <section id="prep-code">
+        <section>
             <h2>Preparation code </h2>
-            <pre><code class="init-html"></code></pre>
-            <pre><code>&lt;script&gt;</code></pre>
-            <div id="setup-code">
-                <pre style="margin-left: 20px;"><code>Benchmark.prototype.setup = function() {</code></pre>
-                <pre style="margin-left: 40px;"><code class="setup"></code></pre>
-                <pre style="margin-left: 20px;"><code>}</code></pre>
-            </div>
-            <div id="teardown-code">
-                <pre style="margin-left: 20px;"><code>Benchmark.prototype.teardown = function() {</code></pre>
-                <pre style="margin-left: 40px;"><code class="teardown"></code></pre>
-                <pre style="margin-left: 20px;"><code>}</code></pre>
-            </div>
-            <pre><code>&lt;/script&gt;</code></pre>
+            <pre><code id="prep-code"></code></pre>
         </section>
 
         <section>
@@ -96,6 +84,14 @@
     <script src="./lib/json-url/json-url.js"></script>
     <script src="./util.js"></script>
     <script src="./jsperf/test.js"></script>
+    <link rel="stylesheet" href="./lib/highlight/default.min.css">
+    <link rel="stylesheet" href="./lib/highlight/atom-one-light.css">
+    <style>
+        .hljs {
+            background: transparent !important;
+        }
+    </style>
+    <script src="./lib/highlight/highlight.min.js"></script>
 
     <script type="text/javascript">
         $(function () {
@@ -120,9 +116,15 @@
                 $("#initHTML").val(suite.initHTML);
                 $("#setup").val(suite.setup);
                 $("#teardown").val(suite.teardown);
-                $("#prep-code .init-html").text(suite.initHTML);
-                $("#prep-code .setup").text(suite.setup);
-                $("#prep-code .teardown").text(suite.teardown);
+                $("#prep-code")[0].textContent = suite.initHTML +
+                    '\n\n<script>\n' +
+                    '    Benchmark.prototype.setup = function() {\n\n' +
+                    (suite.setup || '') +
+                    '\n\n    }\n\n' +
+                    '    Benchmark.prototype.teardown = function() {\n\n' +
+                    (suite.teardown || '') +
+                    '\n\n    }\n\n' +
+                    '<' + '/script>';
                 for (var i = 0; i < suite.tests.length; i++) {
                     var test = suite.tests[i];
                     var testNumber = i + 1;
@@ -157,7 +159,11 @@
                 //populate two test snippets
                 $("#add-test").click().click();
             }
+
+            //highlight all code
+            hljs.initHighlighting();
         });
+
     </script>
 </body>
 

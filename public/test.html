@@ -75,26 +75,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row" id="title-1" tabindex="0" title="Click to run this test again.">
-                            <div>let</div>
-                        </th>
-                        <td class="code">
-                            <pre><code><strong class="col1">// async test</strong><br><pre><code class="js"><span class="hljs-keyword">let</span> thing = <span class="hljs-literal">true</span>;</code></pre>
-                            </code></pre>
-                        </td>
-                        <td id="results-1" class="results" title="">ready</td>
-                    </tr>
-                    <tr>
-                        <th scope="row" id="title-2" tabindex="0" title="Click to run this test again.">
-                            <div>const</div>
-                        </th>
-                        <td class="code">
-                            <pre><code><pre><code class="js"><span class="hljs-keyword">const</span> thing = <span class="hljs-literal">true</span>;</code></pre>
-                            </code></pre>
-                        </td>
-                        <td id="results-2" class="results" title="">ready</td>
-                    </tr>
                 </tbody>
             </table>
 
@@ -133,8 +113,23 @@
                 $("#teardown").val(suite.teardown);
                 for (var i = 0; i < suite.tests.length; i++) {
                     let test = suite.tests[i];
-                    ui.add(suite.title, {
-                        defer: suite.defer,
+                    var testNumber = i + 1;
+                    //add the test to the test table
+                    $('#test-table tbody').append('\
+                        <tr>\
+                            <th scope="row" id="title-' + testNumber + '" tabindex="0" title="Click to run this test again.">\
+                                <div>let</div>\
+                            </th>\
+                            <td class="code">\
+                                <pre><code>' + test.code + '</code></pre>\
+                            </td>\
+                            <td id="results-' + testNumber + '" class="results" title="">ready</td>\
+                        </tr>\
+                    ');
+
+                    //make sure to call this AFTER the above html row is inserted
+                    ui.add(test.title, {
+                        defer: test.defer,
                         fn: test.code,
                     });
 

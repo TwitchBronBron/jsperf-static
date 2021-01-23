@@ -22455,10 +22455,10 @@
         me = ui.browserscope,
         cont = me.container,
         filterBy = cache.lastFilterBy = options.filterBy || cache.lastFilterBy,
-        google = me.chartWindow.google,
+        //google = me.chartWindow.google,
         responses = cache.responses,
-        response = cache.responses[filterBy],
-        visualization = google && google.visualization;
+        response = cache.responses[filterBy];
+        // visualization = google && google.visualization;
 
     function onComplete(response) {
       var lastResponse = responses[filterBy];
@@ -22588,9 +22588,9 @@
         cellWidth,
         me = ui.browserscope,
         cont = me.container,
-        google = me.chartWindow.google,
+        //google = me.chartWindow.google,
         responses = cache.responses,
-        visualization = google && google.visualization,
+        // visualization = google && google.visualization,
         lastChart = cache.lastChart,
         chart = cache.lastChart = options.chart || lastChart,
         lastFilterBy = cache.lastFilterBy,

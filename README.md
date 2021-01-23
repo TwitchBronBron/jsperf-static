@@ -6,4 +6,4 @@ If you're here, you probably already know that [https://jsperf.com](jsPerf.com) 
 - You can create your own jsPerf tests and run them. All tests are *ONLY* stored in the browser's local-storage.
 - (Coming soon) You can generate a shareable URL with the test case embedded in the querystring (as long as your test code compresses small enough to fit into a URL).
 
-Working demo:
+Working demo: https://twitchbronbron.github.io/jsperf-static/

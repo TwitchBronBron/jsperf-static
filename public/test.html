@@ -101,6 +101,7 @@
                 $("#editLink").attr('href', 'edit.html?id=' + suite.id);
                 $("#cloneLink").attr('href', 'edit.html?clone=true&id=' + suite.id);
                 $("#pageTitle").html(suite.title + ' · jsPerf');
+                $("#title").html(suite.title);
                 //populate the form with the suite data
                 $("#id").val(suite.id);
                 $("#authorEmail").val(suite.email);

@@ -7,6 +7,92 @@ function getParameterByName(name, url = window.location.href) {
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 
+function getBaseUrl() {
+    var match = /\w+\.html/i.exec(window.location.href);
+    if (match) {
+        var url = window.location.href.substring(0, match.index);
+        if (url.endsWith('/') === false) {
+            url += '/';
+        }
+        return url;
+    }
+}
+
+function getSuiteFromShareToken(token) {
+    //decompress the token
+    return JsonUrl('lzma').decompress(token).then(function (data) {
+        var suite = {
+            id: data[1] || null,
+            author: data[2] || '',
+            email: data[3] || '',
+            authorURL: data[4] || '',
+            title: data[5] || '',
+            info: data[6] || '',
+            initHTML: data[7] || '',
+            setup: data[8] || '',
+            teardown: data[9] || '',
+            editTime: data[10],
+            tests: []
+        };
+        var tests = data[11];
+        //unpack the tests
+        for (var i = 0; i < tests.length; i++) {
+            var testData = tests[i];
+            suite.tests.push({
+                title: testData[0] || '',
+                defer: testData[1],
+                code: testData[2] || ''
+            });
+        }
+        return suite;
+    });
+}
+
+
+function getShareUrl(suite) {
+    if (!suite) {
+        return Promise.resolve(null);
+    }
+    //compress the object
+    var data = [
+        //what version of the compressed data is this?
+        1,
+        suite.id,
+        suite.author,
+        suite.email,
+        suite.authorURL,
+        suite.title,
+        suite.info,
+        suite.initHTML,
+        suite.setup,
+        suite.teardown,
+        suite.editTime
+        //tests: Array<Array<string, boolean, string>>
+    ];
+    var tests = [];
+    //append each snippet
+    for (var i = 0; i < suite.tests.length; i++) {
+        var test = suite.tests[i];
+        tests.push([
+            test.title || 0,
+            test.defer,
+            test.code || 0
+        ]);
+    }
+    data.push(tests);
+
+    //convert null, empty or whitespace-only strings into 0, because 0 is a single char so it's smaller
+    for (var i = 0; i < data.length; i++) {
+        if (!data[i] || data[i].toString().trim() === '') {
+            data[i] = 0;
+        }
+    }
+
+    return JsonUrl('lzma').compress(data).then(function (text) {
+        return getBaseUrl() + 'test.html?s=' + text;
+    });
+}
+
 function timeSince(date) {
 
     var seconds = Math.floor((new Date() - date) / 1000);

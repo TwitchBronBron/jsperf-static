@@ -75,6 +75,14 @@
             <p>
                 You can <a id="editLink" rel="nofollow">edit these tests</a> or <a id="cloneLink">clone these tests</a>
             </p>
+            <p id="spare-p">
+                Share this test by using the following URL: <br />
+                <a id="share-link"></a>
+            </p>
+            <p id="cant-share-p">
+                This suite is currently too large to share. Please consider trimming down the description or title,
+                removing author information, minifying the test cases, or removing some of the test cases.
+            </p>
         </section>
 
         <section id="comments" style="padding: 200px;">
@@ -95,6 +103,15 @@
 
     <script type="text/javascript">
         $(function () {
+            var shareToken = getParameterByName('s');
+            //if we have a share token, parse it and load the suite
+            if (shareToken) {
+                getSuiteFromShareToken(shareToken).then(function (suite) {
+                    localStorage.setItem(suite.id, JSON.stringify(suite));
+                    window.location.href = 'test.html?id=' + suite.id;
+                });
+                return;
+            }
             var id = getParameterByName("id");
             if (id) {
                 //load suite from local storage
@@ -155,13 +172,24 @@
                         Benchmark.prototype.teardown = suite.teardown;
                     }
                 }
-            } else {
-                //populate two test snippets
-                $("#add-test").click().click();
             }
 
             //highlight all code
             hljs.initHighlighting();
+
+            $("#share-p").hide();
+            $("#cant-share-p").hide();
+
+            //populate the share link
+            getShareUrl(suite).then(function (shareLink) {
+                if (shareLink && shareLink.length < 2048) {
+                    $("#share-link").attr('href', shareLink).html(shareLink);
+
+                    $("#share-p").show();
+                } else {
+                    $("#cant-share-p").show();
+                }
+            });
         });
 
     </script>

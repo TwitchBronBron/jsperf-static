@@ -54,7 +54,7 @@
 
         <section>
             <h2>Preparation code output</h2>
-            <div class="user-output"></div>
+            <div id="user-output" class="user-output"></div>
         </section>
 
         <section id="runner">
@@ -107,6 +107,7 @@
                 $("#cloneLink").attr('href', 'edit.html?clone=true&id=' + suite.id);
                 $("#pageTitle").html(suite.title + ' · jsPerf');
                 $("#title").html(suite.title);
+                $("#user-output").append(suite.initHTML);
                 $("#timeAgo").html(timeSince(new Date(suite.editTime)));
                 //populate the form with the suite data
                 $("#id").val(suite.id);

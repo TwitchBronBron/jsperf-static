@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <!-- saved from url=(0037)http://localhost:3000/asdfasdf/1/edit -->
 <html lang="en" class="js">
-  <head>
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <title>asdf · jsPerf</title>
 
     <link
-      rel="apple-touch-icon"
-      href="http://localhost:3000/public/apple-touch-icon.png"
-    />
+          rel="apple-touch-icon"
+          href="http://localhost:3000/public/apple-touch-icon.png" />
     <link rel="shortcut icon" href="http://localhost:3000/public/favicon.ico" />
 
     <link rel="stylesheet" href="./jsperf/main.src.css" />
@@ -19,178 +19,26 @@
     <!--[if lt IE 9]>
       <script src="./jsperf/html5.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
-    <article>
-      <h1>Editing <a href="http://localhost:3000/asdfasdf">asdf</a></h1>
-      <form method="post" onsubmit="return false;">
-        <input type="hidden" id="id" name="id" value="uf_Qphzf0P" />
-        <fieldset>
-          <h3>Your details (optional)</h3>
-          <div>
-            <label for="author">Name</label>
-            <input
-              type="text"
-              name="author"
-              id="author"
-              value="TwitchBronBron"
-            />
-          </div>
-          <div>
-            <label for="authorEmail">Email </label>
-            <label class="inline">
-              <input
-                type="email"
-                name="authorEmail"
-                id="authorEmail"
-                value=""
-              />
-              (won’t be displayed; might be used for Gravatar)
-            </label>
-          </div>
-          <div>
-            <label for="authorURL">URL </label>
-            <input
-              type="url"
-              name="authorURL"
-              id="authorURL"
-              value="https://bronley.com"
-            />
-          </div>
-        </fieldset>
-        <fieldset>
-          <h3>Test case details</h3>
-          <div>
-            <label for="title"
-              >Title <em title="This field is required">*</em>
-            </label>
-            <input
-              type="text"
-              name="title"
-              id="title"
-              value="asdf"
-              required=""
-            />
+<body>
+    <h1 style="display:inline-block;">jsPerf-static</h1><span> - a serverless local-storage backed clone of
+        jsPerf</span>
+    <p>If you're here, you probably already know that <a href="https://jsperf.com">jsPerf.com</a> has been down for
+        quite some time, with no recent progress in bringing it back online. I just couldn't get used to
+        jsPerf-alternative benchmarking sites (no offense to those sites), so I copied the important bits of jsPerf into
+        this static site.</p>
+    <p>
+    <p>
+        Key points:
+    <ul>
+        <li>All tests are <b><i>ONLY</i></b> stored in the browser's local-storage</li>
+        <li>You can generate a shareable URL with the test case embedded in the querystring (as long as your test code
+            is small enough).</li>
+    </ul>
+    </p>
+    <h2>What is jsPerf?</h2>
+    <p>jsPerf aims to provide an easy way to create and share <a href="/browse" title="View some examples by browsing the jsPerf test cases">test cases</a>, comparing the performance of different JavaScript snippets by running benchmarks. For more information, see <a href="/faq" title="Frequently asked questions">the FAQ</a>.</p>
+</body>
 
-            <input type="hidden" name="slug" id="slug" value="asdfasdf" />
-          </div>
-          <div>
-            <label for="info"
-              >Description
-              <span>(in case you feel further explanation is needed)</span>
-              <span>(Markdown syntax is allowed)</span>
-            </label>
-            <textarea name="info" id="info" maxlength="16777215"></textarea>
-          </div>
-          <fieldset>
-            <h3>Preparation code</h3>
-            <div>
-              <label for="initHTML"
-                >Preparation code HTML
-                <span
-                  >(this will be inserted in the <code>&lt;body&gt;</code> of a
-                  valid HTML5 document in standards mode)
-                </span>
-                <span
-                  >(useful when testing DOM operations or including libraries)
-                </span>
-              </label>
-              <textarea
-                name="initHTML"
-                id="initHTML"
-                maxlength="16777215"
-              ></textarea>
-              <div id="add-buttons">
-                <button id="add-jquery" title="jQuery v1.x">jQuery</button
-                ><button id="add-prototype" title="Prototype v1.x">
-                  Prototype</button
-                ><button id="add-mootools" title="MooTools v.1.3.x">
-                  MooTools</button
-                ><button id="add-yui" title="YUI v2.9.0">YUI</button
-                ><button id="add-dojo" title="Dojo v1.x">Dojo</button
-                ><button id="add-ext" title="Ext Core v3.x">Ext Core</button
-                ><button id="add-mylib" title="My Library v0.99">
-                  My Library
-                </button>
-              </div>
-              <p id="add-libraries">
-                Include JavaScript libraries as follows:
-                <code
-                  >&lt;script
-                  src="https://cdn.example.com/library.js"&gt;&lt;/script&gt;</code
-                >
-              </p>
-              <p></p>
-            </div>
-            <div>
-              <label for="setup"
-                >Define <code>setup</code> for all tests
-                <span
-                  >(variables, functions, arrays or other objects that will be
-                  used in the tests)
-                </span>
-                <span
-                  >(runs before each clocked test loop, outside of the timed
-                  code region)
-                </span>
-                <span
-                  >(e.g. define local test variables, reset global variables,
-                  clear <code>canvas</code>, etc.)
-                </span>
-                <span
-                  >(<a href="http://localhost:3000/faq#setup-teardown"
-                    >see FAQ</a
-                  >)
-                </span>
-              </label>
-              <textarea name="setup" id="setup" maxlength="16777215"></textarea>
-            </div>
-            <div>
-              <label for="teardown"
-                >Define <code>teardown</code> for all tests
-                <span
-                  >(runs after each clocked test loop, outside of the timed code
-                  region)
-                </span>
-                <span
-                  >(<a href="http://localhost:3000/faq#setup-teardown"
-                    >see FAQ</a
-                  >)
-                </span>
-              </label>
-              <textarea name="teardown" id="teardown" maxlength="16777215">
-ccc</textarea
-              >
-            </div>
-          </fieldset>
-          <fieldset id="tests">
-            <h3>Code snippets to compare</h3>
-          </fieldset>
-
-          <p>
-            <em
-              >NB: leave <code>Title</code> and <code>Code</code> blank to
-              remove code snippet.</em
-            >
-          </p>
-
-          <div class="buttons">
-            <input
-              type="submit"
-              class="submit"
-              value="Save test case"
-              title="Save and view test case"
-            />
-          </div>
-          <button onclick="getFormData()">Get form data</button>
-        </fieldset>
-      </form>
-    </article>
-    <script src="./nanoid.js"></script>
-    <script src="./jsperf/jquery.js"></script>
-    <script src="./jsperf/main.src.js"></script>
-    <script src="./util.js"></script>
-    <script src="./index.js"></script>
-  </body>
 </html>

@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<!-- saved from url=(0030)http://localhost:3000/asdfasdf -->
 <html lang="en" class="js">
-  <head>
+
+<head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>asdf · jsPerf</title>
+    <title id="pageTitle">jsPerf</title>
 
-    <link
-      rel="apple-touch-icon"
-      href="http://localhost:3000/public/apple-touch-icon.png"
-    />
-    <link rel="shortcut icon" href="http://localhost:3000/public/favicon.ico" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="shortcut icon" href="./favicon.ico" />
 
     <link rel="stylesheet" href="./jsperf/main.src.css" />
     <link rel="stylesheet" href="./jsperf/default.min.css" />
@@ -19,273 +16,148 @@
     <!--[if lt IE 9]>
       <script src="./jsperf/html5.js"></script>
     <![endif]-->
-  </head>
+</head>
 
-  <body>
+<body>
     <article>
-      <hgroup>
-        <h1>asdf</h1>
-        <h2>JavaScript performance comparison</h2>
-      </hgroup>
+        <hgroup>
+            <h1 id="title"></h1>
+            <h2>JavaScript performance comparison</h2>
+        </hgroup>
 
-      <p class="meta">
-        Test case created by
-        <a href="https://bronley.com/" rel="nofollow">TwitchBronBron</a>
-        <time datetime="2021-01-22T16:36:17.000Z" pubdate="">6 hours ago</time>
-      </p>
+        <p class="meta">
+            Test case created by
+            <a id="authorURL" href=""></a>
+            <time datetime="2021-01-22T16:36:17.000Z" pubdate="">6 hours ago</time>
+        </p>
 
-      <section id="prep-code">
-        <h2>Preparation code</h2>
+        <section id="prep-code">
+            <h2>Preparation code</h2>
 
-        <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//www.cinsoft.net/mylib099-min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+            <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"//www.cinsoft.net/mylib099-min.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
 
       <br>
       <span class="sc2">&lt;<span class="kw2">script</span>&gt;</span><br>
 
         Benchmark.<span class="me1">prototype</span>.<span class="me1">teardown</span> <span class="sy0">=</span> <span class="kw2">function</span><span class="br0">(</span><span class="br0">)</span> <span class="br0">{</span><br>
           <pre><code class="js">  ccc</code></pre>
-        <br>  <span class="br0">}</span><span class="sy0">;</span>
+            <br> <span class="br0">}</span><span class="sy0">;</span>
 
-      <br><span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span>
-    </code></pre>
-      </section>
+            <br><span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">script</span>&gt;</span>
+            </code></pre>
+        </section>
 
-      <section>
-        <h2>Preparation code output</h2>
-        <div class="user-output"></div>
-      </section>
+        <section>
+            <h2>Preparation code output</h2>
+            <div class="user-output"></div>
+        </section>
 
-      <section id="runner">
-        <h2>Test runner</h2>
-        <p id="firebug">
-          <strong
-            >Warning! For accurate results, please disable Firebug before
-            running the tests.
-            <a href="http://localhost:3000/faq#firebug-warning"
-              >(Why?)</a
-            ></strong
-          >
-        </p>
-        <p id="java"><strong>Java applet disabled.</strong></p>
-        <p id="status">Ready to run.</p>
-        <div id="controls" class="show">
-          <button id="run" type="button">Run tests</button>
-        </div>
-        <table id="test-table">
-          <caption>
-            Testing in Chrome 88.0.4324 / Windows 10.0.0
-          </caption>
-          <thead>
-            <tr>
-              <th colspan="2">Test</th>
-              <th title="Operations per second (higher is better)">Ops/sec</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th
-                scope="row"
-                id="title-1"
-                tabindex="0"
-                title="Click to run this test again."
-              >
-                <div>let</div>
-              </th>
-              <td class="code">
-                <pre><code><strong class="col1">// async test</strong><br><pre><code class="js"><span class="hljs-keyword">let</span> thing = <span class="hljs-literal">true</span>;</code></pre></code></pre>
-              </td>
-              <td id="results-1" class="results" title="">ready</td>
-            </tr>
-            <tr>
-              <th
-                scope="row"
-                id="title-2"
-                tabindex="0"
-                title="Click to run this test again."
-              >
-                <div>const</div>
-              </th>
-              <td class="code">
-                <pre><code><pre><code class="js"><span class="hljs-keyword">const</span> thing = <span class="hljs-literal">true</span>;</code></pre></code></pre>
-              </td>
-              <td id="results-2" class="results" title="">ready</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p>
-          You can
-          <a href="http://localhost:3000/asdfasdf/edit" rel="nofollow"
-            >edit these tests or add even more tests to this page</a
-          >
-          by appending <code>/edit</code> to the URL.
-        </p>
-      </section>
-
-      <section id="comments">
-        <h1>0 Comments</h1>
-
-        <div id="comments-wrapper"></div>
-
-        <form
-          action="http://localhost:3000/asdfasdf#comment-form"
-          method="post"
-          id="comment-form"
-        >
-          <fieldset>
-            <h2>Add a comment</h2>
-            <div>
-              <label for="author"
-                >Name <em title="This field is required">*</em>
-              </label>
-              <input
-                type="text"
-                name="author"
-                id="author"
-                required=""
-                value="Bronley Plumb"
-              />
+        <section id="runner">
+            <h2>Test runner</h2>
+            <p id="firebug">
+                <strong>Warning! For accurate results, please disable Firebug before
+                    running the tests.
+                    <a href="http://localhost:3000/faq#firebug-warning">(Why?)</a></strong>
+            </p>
+            <p id="java"><strong>Java applet disabled.</strong></p>
+            <p id="status">Ready to run.</p>
+            <div id="controls" class="show">
+                <button id="run" type="button">Run tests</button>
             </div>
-            <div>
-              <label for="authorEmail"
-                >Email <em title="This field is required">*</em>
-              </label>
-              <label class="inline">
-                <input
-                  type="email"
-                  name="authorEmail"
-                  id="authorEmail"
-                  required=""
-                  value=""
-                />
-                (only used for Gravatar)</label
-              >
-            </div>
-            <div>
-              <label for="authorURL">URL </label>
-              <input
-                type="url"
-                name="authorURL"
-                id="authorURL"
-                value="https://bronley.com"
-              />
-            </div>
-            <div>
-              <label for="message"
-                >Message <em title="This field is required">*</em>
-                <span>Markdown syntax is allowed</span></label
-              >
-              <textarea
-                name="message"
-                id="message"
-                maxlength="16777215"
-                required=""
-              ></textarea>
-            </div>
-            <div class="buttons">
-              <input type="submit" class="submit" value="Add comment" />
-            </div>
-          </fieldset>
-        </form>
-      </section>
+            <table id="test-table">
+                <caption>
+                    Testing in Chrome 88.0.4324 / Windows 10.0.0
+                </caption>
+                <thead>
+                    <tr>
+                        <th colspan="2">Test</th>
+                        <th title="Operations per second (higher is better)">Ops/sec</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th
+                            scope="row"
+                            id="title-1"
+                            tabindex="0"
+                            title="Click to run this test again.">
+                            <div>let</div>
+                        </th>
+                        <td class="code">
+                            <pre><code><strong class="col1">// async test</strong><br><pre><code class="js"><span class="hljs-keyword">let</span> thing = <span class="hljs-literal">true</span>;</code></pre>
+                            </code></pre>
+                        </td>
+                        <td id="results-1" class="results" title="">ready</td>
+                    </tr>
+                    <tr>
+                        <th
+                            scope="row"
+                            id="title-2"
+                            tabindex="0"
+                            title="Click to run this test again.">
+                            <div>const</div>
+                        </th>
+                        <td class="code">
+                            <pre><code><pre><code class="js"><span class="hljs-keyword">const</span> thing = <span class="hljs-literal">true</span>;</code></pre>
+                            </code></pre>
+                        </td>
+                        <td id="results-2" class="results" title="">ready</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>
+                You can
+                <a id="editLink" href="index.html" rel="nofollow">edit these tests or add even more tests to
+                    this page</a>
+                by appending <code>/edit</code> to the URL.
+            </p>
+        </section>
+
+        <section id="comments" style="padding: 200px;">
+        </section>
     </article>
-
-    <footer>
-      <ul>
-        <li>
-          <h4>Sponsors</h4>
-          <p>
-            Hosting generously provided by
-            <a href="https://m.do.co/c/b426e15331e8">DigitalOcean</a> and
-            <a href="https://zeit.co/">Zeit</a>
-          </p>
-
-          <p>
-            <a href="http://localhost:3000/sponsor"
-              >Learn how to become a sponsor</a
-            >
-          </p>
-        </li>
-
-        <li>
-          <h4>Tests</h4>
-          <ul>
-            <li>
-              <a href="http://localhost:3000/">Add</a>
-            </li>
-
-            <li>
-              <a href="http://localhost:3000/browse/TwitchBronBron">My tests</a>
-            </li>
-
-            <li>
-              <a href="http://localhost:3000/browse">Latest</a>
-            </li>
-            <li>
-              <a href="http://localhost:3000/popular">Popular</a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <h4>Info</h4>
-          <ul>
-            <li>
-              <a href="http://localhost:3000/faq">FAQ</a>
-            </li>
-            <li>
-              <a href="http://localhost:3000/testimonials">Testimonials</a>
-            </li>
-            <li>
-              <a href="http://localhost:3000/contributors">Contributors</a>
-            </li>
-            <li>
-              <a href="https://benchmarkjs.com/">Benchmark.js</a>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <h4>Contact</h4>
-          <ul>
-            <li>
-              <a href="https://twitter.com/jsperf">Twitter</a>
-            </li>
-            <li>
-              <a href="https://github.com/jsperf/jsperf.com">GitHub</a>
-            </li>
-            <li>
-              <a href="https://webchat.freenode.net/?channels=jsperf">IRC</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </footer>
-
-    <script src="./test_files/test.js.download"></script>
+    <script src="./jsperf/jquery.js"></script>
+    <script src="./util.js"></script>
+    <script src="./jsperf/test.js"></script>
     <script>
-      ui.add("let", {
-        defer: true,
-        fn: "let thing = true;",
-      });
-      ui.add("const", {
-        defer: false,
-        fn: "const thing = true;",
-      });
-
-      Benchmark.prototype.teardown = "ccc";
+        Benchmark.prototype.teardown = "ccc";
     </script>
 
-    <script src="./test_files/mylib099-min.js.download"></script>
+    <script type="text/javascript">
+        $(function () {
+            var id = getParameterByName("id");
+            if (id) {
+                //load suite from local storage
+                var suite = JSON.parse(localStorage.getItem(id));
+debugger;
+                $("#editLink").attr('href', 'index.html?id=' + suite.id);
+                $("#pageTitle").html(suite.title + ' · jsPerf');
+                //populate the form with the suite data
+                $("#id").val(suite.id);
+                $("#authorEmail").val(suite.email);
+                $("#authorURL").attr('href', suite.url);
+                $("#authorURL").text('Bronley');
+                $("#title").val(suite.title);
+                $("#info").val(suite.info);
+                $("#initHTML").val(suite.initHTML);
+                $("#setup").val(suite.setup);
+                $("#teardown").val(suite.teardown);
+                for (var i = 0; i < suite.tests.length; i++) {
+                    let test = suite.tests[i];
+                    ui.add(suite.title, {
+                        defer: suite.defer,
+                        fn: test.code,
+                    });
 
-    <script>
-      window._gaq = [["_setAccount", "UA-6065217-40"], ["_trackPageview"]];
-      (function (d, t) {
-        var g = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-        g.src = "https://ssl.google-analytics.com/ga.js";
-        s.parentNode.insertBefore(g, s);
-      })(document, "script");
+                    Benchmark.prototype.teardown = suite.teardown;
+                }
+            } else {
+                //populate two test snippets
+                $("#add-test").click().click();
+            }
+        });
     </script>
-  </body>
+</body>
+
 </html>

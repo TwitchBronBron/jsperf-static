@@ -119,15 +119,16 @@
                 $("#setup").val(suite.setup);
                 $("#teardown").val(suite.teardown);
                 for (var i = 0; i < suite.tests.length; i++) {
-                    let test = suite.tests[i];
+                    var test = suite.tests[i];
                     var testNumber = i + 1;
                     //add the test to the test table
                     $('#test-table tbody').append('\
                         <tr>\
                             <th scope="row" id="title-' + testNumber + '" tabindex="0" title="Click to run this test again.">\
-                                <div>let</div>\
+                                <div>' + test.title + '</div>\
                             </th>\
                             <td class="code">\
+                             ' + (test.defer ? '<pre><code>// async test</code></pre>' : '') + '\
                                 <pre><code>' + test.code + '</code></pre>\
                             </td>\
                             <td id="results-' + testNumber + '" class="results" title="">ready</td>\

@@ -146,7 +146,12 @@
                         fn: test.code,
                     });
 
-                    Benchmark.prototype.teardown = suite.teardown;
+                    if (suite.setup) {
+                        Benchmark.prototype.setup = suite.setup;
+                    }
+                    if (suite.teardown) {
+                        Benchmark.prototype.teardown = suite.teardown;
+                    }
                 }
             } else {
                 //populate two test snippets

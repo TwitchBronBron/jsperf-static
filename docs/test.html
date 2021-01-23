@@ -28,7 +28,7 @@
         <p class="meta">
             Test case created by
             <a id="authorURL" href=""></a>
-            <time datetime="2021-01-22T16:36:17.000Z" pubdate="">6 hours ago</time>
+            <time id="timeAgo"></time> ago
         </p>
 
         <section id="prep-code">
@@ -102,6 +102,7 @@
                 $("#cloneLink").attr('href', 'edit.html?clone=true&id=' + suite.id);
                 $("#pageTitle").html(suite.title + ' · jsPerf');
                 $("#title").html(suite.title);
+                $("#timeAgo").html(timeSince(new Date(suite.editTime)));
                 //populate the form with the suite data
                 $("#id").val(suite.id);
                 $("#authorEmail").val(suite.email);

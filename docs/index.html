@@ -43,6 +43,38 @@
         different JavaScript snippets by running benchmarks. For more information, see <a href="/faq"
            title="Frequently asked questions">the FAQ</a>.</p>
     <p>What are you waitig for? Go ahead and <a href="edit.html"><button>Create a test case</button></a></p>
+    <br />
+    <h3>All Local Tests</h3>
+    <div id="test-container">
+    </div>
+    <script src="./lib/jquery.js"></script>
+    <script src="./util.js"></script>
+    <script>
+        var suites = [];
+        var keys = Object.keys(localStorage);
+        //find all locally-stored tests and display them as links
+        for (var i = 0; i < keys.length; i++) {
+            suites.push(JSON.parse(localStorage.getItem(keys[i])));
+        }
+        //sort the tests alphabetically by name (case-insensitive)
+        suites.sort(function (a, b) {
+            return a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+        });
+        var $testContainer = $('#test-container');
+        for (var i = 0; i < suites.length; i++) {
+            var suite = suites[i];
+            $testContainer.append(
+                '<li>' +
+                '   <a href="test.html?id=' + suite.id + '">' +
+                '       ' + (suite.title || '<no title>') +
+                '       (<i>' + suite.id + '</i>)</a>' +
+                'by ' + (suite.author || '<no author>') +
+                '   (last updated ' + timeSince(new Date(suite.editTime)) + ' ago)' +
+                '</li>'
+            );
+        }
+
+    </script>
 </body>
 
 </html>

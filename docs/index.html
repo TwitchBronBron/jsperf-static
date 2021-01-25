@@ -73,12 +73,21 @@
                 '<li>' +
                 '   <a href="test.html?id=' + suite.id + '">' + (suite.title || '<no title>') +
                 '       (<i>' + suite.id + '</i>)</a>' +
-                (suite.author ? ' by ' + suite.author: '') +
+                (suite.author ? ' by ' + suite.author : '') +
                 '   (last updated ' + timeSince(new Date(suite.editTime)) + ' ago)' +
                 '</li>'
             );
         }
 
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PY1DN0BYBY"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-PY1DN0BYBY');
     </script>
 </body>
 
